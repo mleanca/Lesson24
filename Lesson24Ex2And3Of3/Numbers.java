@@ -13,14 +13,26 @@ public class Numbers {
     }
 
 
-//    public int countDivisibileBy7Numbers(int inferiorLimit, int superiorLimit) {
-//        if (inferiorLimit > superiorLimit) {
-//            throw new InvalidRangeException("Lower limit must not exceed than superior limit");
-//        } else {
-//
-//        }
-//    }
-//
-//    public InvalidRangeException
+    public int countDivisibleBy7Numbers(int inferiorLimit, int superiorLimit) throws InvalidRangeException {
 
+        if (inferiorLimit > superiorLimit) {
+            throw new InvalidRangeException("Invalid Range Exception - inferior limit must be lower than superior limit");
+        }
+
+        int count = 0;
+
+        for (int i = inferiorLimit; i < superiorLimit; i++) {
+            if (i % 7 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    class InvalidRangeException extends Exception {
+        //exceptie definita, am pus ca inner class pentru al vedea mai usor
+        public InvalidRangeException(String message) {
+            super(message);
+        }
+    }
 }
